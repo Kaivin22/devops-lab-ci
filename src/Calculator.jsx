@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { add, subtract, multiply, divide } from './calculator.js';
+import { add, subtract, multiply, divide, power } from './calculator.js';
 
 function Calculator() {
   const [a, setA] = useState('');
@@ -30,6 +30,9 @@ function Calculator() {
           break;
         case 'divide':
           res = divide(x, y);
+          break;
+        case 'power':
+          res = power(x, y);
           break;
         default:
           res = '';
@@ -65,6 +68,7 @@ function Calculator() {
         <button onClick={() => handleOperation('subtract')} style={{ marginLeft: 8 }}>Trừ</button>
         <button onClick={() => handleOperation('multiply')} style={{ marginLeft: 8 }}>Nhân</button>
         <button onClick={() => handleOperation('divide')} style={{ marginLeft: 8 }}>Chia</button>
+        <button onClick={() => handleOperation('power')} style={{ marginLeft: 8 }}>Lũy thừa</button>
       </div>
       {error && <div style={{ color: 'red', marginBottom: 8 }}>{error}</div>}
       <div>
